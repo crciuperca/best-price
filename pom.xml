@@ -10,6 +10,7 @@
 
     <modules>
         <module>crawler</module>
+        <module>storage</module>
     </modules>
 
 </project>

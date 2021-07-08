@@ -1,4 +1,4 @@
-package com.bestprice.crawler.entity;
+package com.bestprice.storage.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,21 +11,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.sql.Date;
+import javax.persistence.Table;
+import java.util.UUID;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ItemPrice {
+@Table(name = "item_category")
+public class ItemCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private Float price;
-    private Date URL;
+    private UUID id;
+    private String name;
     @ManyToOne
-    @JoinColumn(name = "item_id")
-    private Item item;
+    @JoinColumn(name = "parent_category_id")
+    private ItemCategory parentCategory;
 }

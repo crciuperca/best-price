@@ -1,9 +1,12 @@
-package com.bestprice.crawler.service;
+package com.bestprice.storage.service;
 
-import com.bestprice.crawler.entity.Item;
-import com.bestprice.crawler.repository.ItemRepository;
+import com.bestprice.storage.entity.Item;
+import com.bestprice.storage.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class ItemService {
@@ -15,7 +18,7 @@ public class ItemService {
         return itemRepository.save(item);
     }
 
-    public Item getItem(Long id) {
-        return itemRepository.getById(id);
+    public Optional<Item> getItemById(UUID id) {
+        return itemRepository.findById(id);
     }
 }

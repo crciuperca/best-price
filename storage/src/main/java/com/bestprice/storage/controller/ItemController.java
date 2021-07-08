@@ -1,9 +1,11 @@
-package com.bestprice.crawler.controller;
+package com.bestprice.storage.controller;
 
-import com.bestprice.crawler.entity.Item;
-import com.bestprice.crawler.service.ItemService;
+import com.bestprice.storage.entity.Item;
+import com.bestprice.storage.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/items")
@@ -18,7 +20,7 @@ public class ItemController {
     }
 
     @GetMapping("/{id}")
-    public Item getItem(@PathVariable Long id) {
-        return itemService.getItem(id);
+    public Item getItemById(@PathVariable UUID id) {
+        return itemService.getItemById(id).orElseGet(null);
     }
 }
