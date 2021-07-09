@@ -26,6 +26,7 @@ public class ItemCategory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String name;
+    private String URL;
     @ManyToOne
     @JoinColumn(name = "parent_category_id")
     private ItemCategory parentCategory;

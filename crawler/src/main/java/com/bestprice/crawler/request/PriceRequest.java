@@ -1,4 +1,4 @@
-package com.bestprice.storage.request;
+package com.bestprice.crawler.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
