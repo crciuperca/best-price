@@ -1,6 +1,7 @@
 package com.bestprice.storage.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -20,6 +21,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @ToString
 @Table(name = "item_price_history")
 public class ItemPrice {

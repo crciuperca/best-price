@@ -20,7 +20,7 @@ CREATE TABLE ITEM_CATEGORY (
 id                      UUID DEFAULT gen_random_uuid() PRIMARY KEY,
 name                    VARCHAR(999) NOT NULL,
 parent_category_id      UUID,
-url                     VARCHAR(999) NOT NULL,
+url                     VARCHAR(999) UNIQUE NOT NULL,
 CONSTRAINT fk_category_parent
     FOREIGN KEY(parent_category_id) REFERENCES ITEM_CATEGORY(id)
 );
@@ -28,7 +28,7 @@ CONSTRAINT fk_category_parent
 CREATE TABLE ITEM (
 id              UUID DEFAULT gen_random_uuid() PRIMARY KEY,
 name            VARCHAR(999) NOT NULL,
-url             VARCHAR(999) NOT NULL,
+url             VARCHAR(999) UNIQUE NOT NULL,
 category_id     UUID NOT NULL,
 created_at      TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 CONSTRAINT fk_item_category

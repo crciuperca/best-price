@@ -6,6 +6,7 @@ import com.bestprice.storage.request.PriceRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -29,4 +30,7 @@ public class ItemPriceService {
                 itemPriceRepository.findLatestPriceByItemId(id).orElseGet(null));
     }
 
+    public List<ItemPrice> getAllItemPrice() {
+        return itemPriceRepository.findAll();
+    }
 }

@@ -32,4 +32,8 @@ public class ItemCategoryService {
         }
         return Optional.of(childItemCategoryList.get((new Random()).nextInt(childItemCategoryList.size())));
     }
+
+    public List<ItemCategory> getAllItemCategoryById() {
+        return itemCategoryRepository.findAll();
+    }
 }

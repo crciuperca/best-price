@@ -1,4 +1,4 @@
-package com.bestprice.crawler.sent;
+package com.bestprice.storage.receive;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ItemSent {
+public class ItemReceived {
 
     private String name;
     private String URL;
