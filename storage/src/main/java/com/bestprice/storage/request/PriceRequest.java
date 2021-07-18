@@ -13,8 +13,15 @@ import lombok.ToString;
 @ToString
 public class PriceRequest {
 
-    private float minPrice;
-    private float maxPrice;
-    private float latestPrice;
+    private Float minPrice;
+    private Float maxPrice;
+    private Float latestPrice;
+
+    @Override
+    public boolean equals(Object o) {
+        return this.minPrice == ((PriceRequest)o).getMinPrice() &&
+                this.maxPrice == ((PriceRequest)o).getMaxPrice() &&
+                this.latestPrice == ((PriceRequest)o).getLatestPrice();
+    }
 
 }

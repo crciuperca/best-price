@@ -22,6 +22,10 @@ public class ItemPriceController {
     @Autowired
     private ItemPriceService itemPriceService;
 
+    public ItemPriceController(ItemPriceService itemPriceService) {
+        this.itemPriceService = itemPriceService;
+    }
+
     @PostMapping("/")
     public ItemPrice saveItemPrice(@RequestBody ItemPrice itemPrice) {
         return itemPriceService.saveItemPrice(itemPrice);

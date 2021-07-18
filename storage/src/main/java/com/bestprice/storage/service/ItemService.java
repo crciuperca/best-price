@@ -25,6 +25,12 @@ public class ItemService {
     @Autowired
     private ItemPriceRepository itemPriceRepository;
 
+    public ItemService(ItemRepository itemRepository, ItemCategoryRepository itemCategoryRepository, ItemPriceRepository itemPriceRepository) {
+        this.itemRepository = itemRepository;
+        this.itemCategoryRepository = itemCategoryRepository;
+        this.itemPriceRepository = itemPriceRepository;
+    }
+
     public Item saveItem(ItemReceived itemReceived) {
         ItemCategory itemCategory = itemCategoryRepository.findById(itemReceived.getCategoryId()).get(); //TODO behaviour for new Category, althought this won't fail in the current implementation
         Optional<Item> existingItem = itemRepository.findByURL(itemReceived.getURL());

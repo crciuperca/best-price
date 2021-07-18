@@ -17,6 +17,10 @@ public class ItemCategoryService {
     @Autowired
     private ItemCategoryRepository itemCategoryRepository;
 
+    public ItemCategoryService(ItemCategoryRepository itemCategoryRepository) {
+        this.itemCategoryRepository = itemCategoryRepository;
+    }
+
     public ItemCategory saveItemCategory(ItemCategory itemCategory) {
         return itemCategoryRepository.save(itemCategory);
     }
@@ -33,7 +37,7 @@ public class ItemCategoryService {
         return Optional.of(childItemCategoryList.get((new Random()).nextInt(childItemCategoryList.size())));
     }
 
-    public List<ItemCategory> getAllItemCategoryById() {
+    public List<ItemCategory> getAllItemCategory() {
         return itemCategoryRepository.findAll();
     }
 }

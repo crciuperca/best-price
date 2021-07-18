@@ -20,6 +20,10 @@ public class ItemCategoryController {
     @Autowired
     private ItemCategoryService itemCategoryService;
 
+    public ItemCategoryController(ItemCategoryService itemCategoryService) {
+        this.itemCategoryService = itemCategoryService;
+    }
+
     @PostMapping("/")
     public ItemCategory saveItemCategory(@RequestBody ItemCategory itemCategory) {
         return itemCategoryService.saveItemCategory(itemCategory);
@@ -32,7 +36,7 @@ public class ItemCategoryController {
 
     @GetMapping("/all")
     public List<ItemCategory> getAllItemCategory() {
-        return itemCategoryService.getAllItemCategoryById();
+        return itemCategoryService.getAllItemCategory();
     }
 
     @GetMapping("/random")

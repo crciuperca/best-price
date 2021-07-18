@@ -17,6 +17,10 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
+    public ItemController(ItemService itemService) {
+        this.itemService = itemService;
+    }
+
     @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Item saveItem(@RequestBody ItemReceived itemReceived) {
         return itemService.saveItem(itemReceived);

@@ -16,6 +16,10 @@ public class ItemPriceService {
     @Autowired
     private ItemPriceRepository itemPriceRepository;
 
+    public ItemPriceService(ItemPriceRepository itemPriceRepository) {
+        this.itemPriceRepository = itemPriceRepository;
+    }
+
     public ItemPrice saveItemPrice(ItemPrice itemPrice) {
         return itemPriceRepository.save(itemPrice);
     }
